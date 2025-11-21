@@ -1,0 +1,21 @@
+# Python
+__pycache__/
+*.py[cod]
+venv/
+.env
+
+# Banco de Dados (Não enviamos o DB real, apenas a estrutura via código)
+*.db
+*.sqlite3
+
+# Dados temporários
+scripts/data/*.json
+scripts/data/*.txt
+
+# Frontend (Node)
+frontend/node_modules/
+frontend/dist/
+
+# IDE
+.vscode/
+.idea/
