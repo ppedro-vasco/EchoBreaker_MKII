@@ -23,9 +23,11 @@ def create_app(config_class=Config):
     from app import models
     from .routes.auth_routes import auth_bp
     from .routes.analysis_routes import analysis_bp
+    from .routes.tools_routes import tools_bp
 
     app.register_blueprint(auth_bp)
     app.register_blueprint(analysis_bp)
+    app.register_blueprint(tools_bp)
 
     from .services.recommendation_service import RecommendationService
 
