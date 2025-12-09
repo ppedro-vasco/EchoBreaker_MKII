@@ -17,7 +17,6 @@ def create_app(config_class=Config):
     db.init_app(app)
     migrate.init_app(app, db)
     login_manager.init_app(app)
-
     scheduler.init_app(app)
     scheduler.start()
     
