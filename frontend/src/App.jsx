@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider, AuthContext } from './context/AuthContext';
 import { useContext } from 'react';
 import MatrixBackground from './components/MatrixBackground';
+import AuroraBackground from './components/AuroraBackground';
 import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
 import Converter from './pages/Converter';
@@ -24,7 +25,7 @@ function App() {
   return (
     <BrowserRouter>
       <AuthProvider>
-        <MatrixBackground />
+        <AuroraBackground />
 
         <div className="relative z-10 min-h-screen flex flex-col">
           <Routes>

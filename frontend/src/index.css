@@ -1,10 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 body {
-  @apply bg-black text-green-500 font-mono;
-  margin: 0;
-  padding: 0;
+  @apply bg-deep-space text-white font-sans antialiased;
   overflow-x: hidden;
+}
+
+.glass-panel {
+  @apply bg-glass-white backdrop-blur-xl border border-glass-border shadow-glass rounded-2xl;
+}
+
+.animate-fade-in { animation: fadeIn 0.5s ease-out; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+/* --- CORREÇÃO DAS ANIMAÇÕES --- */
+
+/* 1. Subida (De baixo para cima) */
+@keyframes rise {
+  0% { transform: translateY(0) translateX(0); }
+  100% { transform: translateY(-120vh) translateX(-20px); } /* Vai para o Topo (Negativo) */
+}
+
+/* 2. Bolha Sólida */
+@keyframes pop {
+  0% { opacity: 0; transform: scale(0.5); }
+  10% { opacity: 0.8; transform: scale(1); }
+  
+  /* Mantém visível até quase a metade */
+  45% { opacity: 0.8; transform: scale(1.1); }
+  
+  /* ESTOURO EXATO NOS 50% */
+  50% { opacity: 0; transform: scale(2); } 
+  
+  100% { opacity: 0; transform: scale(2); }
+}
+
+/* 3. Dígito Binário (Aparece no meio - 50%) */
+@keyframes digit {
+  /* Invisível na primeira metade */
+  0%, 49% { opacity: 0; transform: scale(0.5); }
+  
+  /* APARECE EXATO NOS 50% */
+  50% { opacity: 1; transform: scale(1.2); } 
+  
+  /* Fica visível subindo até o topo */
+  85% { opacity: 1; transform: scale(1); }
+  100% { opacity: 0; transform: translateY(-50px); }
+}
+
+/* 4. Luzes de Fundo */
+@keyframes blob {
+  0% { transform: translate(0px, 0px) scale(1); }
+  33% { transform: translate(30px, -50px) scale(1.1); }
+  66% { transform: translate(-20px, 20px) scale(0.9); }
+  100% { transform: translate(0px, 0px) scale(1); }
+}
+.animate-blob { animation: blob 10s infinite; }
+.animation-delay-2000 { animation-delay: 2s; }
+.animation-delay-4000 { animation-delay: 4s; }
+
+@keyframes shimmer {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0%); }
+}
+
+.animate-spin-slow {
+  animation: spin 3s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
